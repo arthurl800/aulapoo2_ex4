@@ -9,7 +9,7 @@ public class Projeto {
 	private String nome;
 	private Date dt_Inicio;
 	private Date dt_Termino;
-	private List<Projeto> listaProjetos = new ArrayList<>();
+	private List<Contratacao> contratacoes = new ArrayList<>();
 	
 	public Projeto(String nome, Date dt_Inicio, Date dt_Termino) {
 		super();
@@ -47,38 +47,48 @@ public class Projeto {
 		return "Projeto [nome=" + nome + ", dt_Inicio=" + dt_Inicio + ", dt_Termino=" + dt_Termino + "]";
 	}
 	
-	public boolean adicionarContratacao (Projeto contratacao) {
+	public List<Contratacao> getContratacao() {
+		return contratacoes;
+	}
+	
+	public boolean adicionarContratacao (Contratacao contratacao) {
 		
-		
-		if ( contratacao != null && !listaProjetos.contains(contratacao) ) {
-			this.listaProjetos.add(contratacao);
+		if ( contratacao != null && !contratacoes.contains(contratacao) ) {
+			this.contratacoes.add(contratacao);
 			return true;
 		}
-		
+			
 		return false;
+
 	}
 	
 	public boolean removerContratacao (Contratacao contratacao) {
 		
-		if ( contratacao != null && listaProjetos.size() > 0 && listaProjetos.contains(contratacao) ) {
-			this.listaProjetos.remove(contratacao);
+		if ( contratacao != null && contratacoes.size() > 0 && contratacoes.contains(contratacao) ) {
+			this.contratacoes.remove(contratacao);
 			return true;
-		}
+		}	
 		
 		return false;
+
 	}
 	
 	public void listarContratacao() {
 		
-		System.out.println();
-		if (listaProjetos.isEmpty()) {
-			System.out.println("Projeto" + this.nome + " nao cadastrado");
+        System.out.println("***Contratações***");
+        System.out.println("Projeto:");
+        System.out.println(nome);
+        System.out.println("Funcionário(s):");
+     
+        for (Contratacao c : this.contratacoes ) {
+			System.out.println("\t Status: " + c.getStatus()); 
+			
+			System.out.println("NAO ESTA IMPRIMINDO O FOR");
+			
 		}
-		else {
-			System.out.println("Projeto: \n" + this.nome);
-			for (Projeto m : this.listaProjetos) {
-				System.out.println(" FUNCIONARIO "); 
-			}
-		}
+        
+        
+        System.out.println();
+
 	}
 }

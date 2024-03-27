@@ -15,6 +15,8 @@ public class Program {
 		Contratacao c1 = new Contratacao(df.parse("01/01/2020"), Cargo.DIRETOR, f1, p1);
 		Contratacao c2 = new Contratacao(df.parse("11/10/2020"), Cargo.ADMINISTRATIVO, f2, p1);
 		
+	//	Projeto p2 = new Projeto("Construcao da Loja ABC", df.parse("01/01/2022"), df.parse("31/12/2022"));
+
 		p1.listarContratacao();
 		
 		c1.contratar();
@@ -23,6 +25,8 @@ public class Program {
 		c1.demitir();
 		c2.contratar();
 		p1.listarContratacao();
+		
+		
 	}
 
 }
